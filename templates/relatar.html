@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatar</title>
+    <link rel="stylesheet" href="/styles/relatar.css"> <!--É essa linha que conecta a página HTML com o arquivo CSS-->
+</head>
+
+
+<body>
+
+    <header class="cabecalho">
+        <nav class="cabecalho__menu">
+            <button class="cabecalho__menu__botao" type="menu" onclick="toggleMenu()"></button>
+
+            <a href="/templates/pagina_principal.html"><img class="cabecalho__menu__imagem" src="/assets/COMUNIDADE_PRAIA_LIMPA__2_-removebg-preview_2.png"></a>
+            <a class="cabecalho__menu__link home" href="pagina_principal.html">Home</a>
+            <a class="cabecalho__menu__link" href="/templates/integrantes.html">Integrantes</a>
+            <a class="cabecalho__menu__link" href="/templates/saber_mais.html">Saber Mais</a>
+            <a class="cabecalho__menu__link" href="/templates/ongs_colaboradoras.html">ONGs Colaboradoras</a>
+            <a class="cabecalho__menu__link" href="/templates/relatar.html">Relatar</a>
+            <a class="cabecalho__menu__link__login" href="/templates/cadastro_login.html">Cadastro/Login</a>
+        </nav>
+    </header>
+
+
+    <main class="apresentacao">
+        
+        <h1 class="apresentacao__conteudo__titulo">Relate problemas de poluição ou lixo na praia</h1>
+        <form onsubmit="calculate(event)">
+
+            <input type="file" id="imagem" multiple>
+            <br>
+
+            <label class="apresentacao__conteudo__texto" for="nome"><strong>Nome da Praia:</strong></label>
+            <input type="text" id="nome" required>
+            <br>
+
+            <label class="apresentacao__conteudo__texto" for="estado"><strong>Estado da Praia:</strong></label>
+            <input type="text" id="estado" required>
+            <br>
+
+            <label class="apresentacao__conteudo__texto" for="cidade"><strong>Cidade da Praia:</strong></label>
+            <input type="text" id="cidade" required>
+            <br>
+
+            <label class="apresentacao__conteudo__texto" for="cep"><strong>CEP da Praia:</strong></label>
+            <input type="text" id="cep" required>
+            <br>
+
+            <p class="apresentacao__conteudo__texto"><strong>Descrição do problema:</strong></p>
+            <textarea class="apresentacao__conteudo__descricao" id="descricao-problema"></textarea>
+            <br>
+
+            <button type="submit">Enviar</button>
+            <button class="inverted" type="button" onclick="resetAll()">Limpar</button>
+        </form>
+
+
+        <dialog id="result">
+
+            <header>
+                <h3>
+                    Resultado
+                </h3>
+                <button class="close" type="button" onclick="fechar()">
+                    X
+                </button>
+            </header>
+
+            <p>Dados do Relatório:</p>
+            <pre id="objeto"></pre>
+
+            <br>
+            <h6>JSON</h6>
+            <pre id="json"></pre>
+
+            <br>
+            <p>Relatório enviado com sucesso!</p>
+            <p>As praias agradecem, e nós também!</p>
+
+        </dialog>
+
+    </main>
+
+
+    <footer>
+        <p class="rodape">Desenvolvido pela AlphaSolvers</p>
+    </footer>
+
+    <script src="/scripts/relatar.js"></script>
+</body>
+
+</html>
